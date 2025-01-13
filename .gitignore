@@ -1,3 +1,7 @@
 media/*
 jellyfin
 jellyseerr
+prowlarr
+radarr
+sonarr
+.env
