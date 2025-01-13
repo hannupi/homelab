@@ -15,9 +15,7 @@ services:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
     environment:
-      - LOG_LEVEL=debug
-      - TZ=Europe/Helsinki
-      - PORT=5055 
+      - TZ=${TIMEZONE}
     ports:
       - 5055:5055
     volumes:
