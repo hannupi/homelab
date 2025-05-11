@@ -1,0 +1,13 @@
+[Unit]
+Description=Local shutdown web interface
+After=network.target
+
+[Service]
+User=shutdownweb
+Group=shutdownweb
+WorkingDirectory=/opt/shutdownweb
+ExecStart=/usr/bin/python3 shutdown_server.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
