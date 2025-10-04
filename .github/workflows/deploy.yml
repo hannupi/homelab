@@ -1,0 +1,27 @@
+name: Deploy on Pi
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: master
+
+      - name: create .env
+        run: |
+          echo "TIMEZONE=Europe/Helsinki" > $GITHUB_WORKSPACE/.env
+
+      - name: Build & run container
+        run: |
+          docker compose -f docker-compose.home.yml down
+          docker compose build --no-cache
+          docker compose -f docker-compose.home.yml up -d
+
