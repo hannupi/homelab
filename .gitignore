@@ -5,3 +5,4 @@ prowlarr
 radarr
 sonarr
 .env
+config/
