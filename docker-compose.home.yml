@@ -9,4 +9,4 @@ services:
       - ./config:/config
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - TZ=$T{TIMEZONE}
+      - TZ=${TIMEZONE}
