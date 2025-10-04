@@ -21,7 +21,10 @@ jobs:
 
       - name: Build & run container
         run: |
-          docker compose -f docker-compose.home.yml down
-          docker compose build --no-cache
-          docker compose -f docker-compose.home.yml up -d
+          if [ -n "$(docker compose -f docker-compose.home.yml ps -q)" ]; then
+            # Only run down if container exists
+            docker compose -f docker-compose.home.yml down
+          fi
+
+          docker compose -f docker-compose.home.yml up -d --build
 
