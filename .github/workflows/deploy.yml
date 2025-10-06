@@ -18,6 +18,7 @@ jobs:
       - name: create .env
         run: |
           echo "TIMEZONE=Europe/Helsinki" > $GITHUB_WORKSPACE/.env
+          echo "TS_AUTHKEY=${{ secrets.TS_AUTHKEY }}" >> $GITHUB_WORKSPACE/.env
 
       - name: Build & run container
         run: |
