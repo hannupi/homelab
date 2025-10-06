@@ -20,7 +20,7 @@ services:
                - TS_STATE_DIR=/var/lib/tailscale
                - TS_USERSPACE=true
                - TS_ACCEPT_DNS=false
-               - TS_EXTRA_ARGS=--advertise-exit-node
+               - TS_EXTRA_ARGS=--advertise-exit-node --advertise-routes=192.168.0.0/24 --accept-dns=false
           volumes:
                - $HOME/state:/var/lib/tailscale
                - /dev/net/tun:/dev/net/tun
